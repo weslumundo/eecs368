@@ -539,6 +539,15 @@ function redRefix(i,j){
         clear();
         blackTurnSetup();
     }
+    else{
+        space[i][j].classList.add("active");
+        space[i][j].firstChild.src = "assets/redChecker2.png";
+        space[i][j].onclick = ()=> {
+            space[i][j].firstChild.src = "assets/redChecker.png";
+            clear();
+            blackTurnSetup();
+        }
+    }
 }
 
 function blackRefix(i,j){
@@ -576,6 +585,15 @@ function blackRefix(i,j){
     if(check){
         clear();
         redTurnSetup();
+    }
+    else{
+        space[i][j].classList.add("active");
+        space[i][j].firstChild.src = "assets/blackChecker2.png";
+        space[i][j].onclick = ()=> {
+            space[i][j].firstChild.src = "assets/blackChecker.png";
+            clear();
+            redTurnSetup();
+        }
     }
 }
 
@@ -641,6 +659,15 @@ function redKingRefix(i,j){
         clear();
         blackTurnSetup();
     }
+    else{
+        space[i][j].classList.add("active");
+        space[i][j].firstChild.src = "assets/redKing2.png";
+        space[i][j].onclick = ()=> {
+            space[i][j].firstChild.src = "assets/redKing.png";
+            clear();
+            blackTurnSetup();
+        }
+    }
 }
 
 function blackKingRefix(i,j){
@@ -704,6 +731,15 @@ function blackKingRefix(i,j){
     if(check){
         clear();
         redTurnSetup();
+    }
+    else{
+        space[i][j].classList.add("active");
+        space[i][j].firstChild.src = "assets/blackKing2.png";
+        space[i][j].onclick = ()=> {
+            space[i][j].firstChild.src = "assets/blackKing.png";
+            clear();
+            redTurnSetup();
+        }
     }
 }
 
