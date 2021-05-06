@@ -1,0 +1,89 @@
+body{
+    background-color:antiquewhite;
+}
+
+div{
+    float: left;
+}
+
+.wrapper{
+    float: none;
+}
+
+.outer{
+    margin-top: 2%;
+    margin-left: 30%;
+    float: none;
+}
+
+.black,
+.white{
+    height: 100px;
+    width: 100px;
+    border: black solid 1px;
+}
+
+.active{
+    border-color: seagreen;
+}
+
+.active:hover{
+    border-color: violet;
+}
+
+.black{
+    background-color: #575553;
+}
+
+.white{
+    background-color: ivory;
+}
+
+#test{
+    float: none;
+    visibility: hidden;
+}
+
+#c00,
+#c01,
+#c02,
+#c03,
+#c04,
+#c05,
+#c06,
+#c07{
+    border-left-width: 4px;
+}
+
+#c70,
+#c71,
+#c72,
+#c73,
+#c74,
+#c75,
+#c76,
+#c77{
+    border-right-width: 4px;
+}
+
+#c00,
+#c10,
+#c20,
+#c30,
+#c40,
+#c50,
+#c60,
+#c70{
+    border-top-width: 1px;
+}
+
+#c07,
+#c17,
+#c27,
+#c37,
+#c47,
+#c57,
+#c67,
+#c77{
+    border-bottom-width: 4px;
+}
