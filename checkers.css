@@ -44,6 +44,28 @@ div{
     visibility: hidden;
 }
 
+#black,
+#red,
+#win{
+    position: relative;
+    visibility: hidden;
+}
+
+#black,
+#red{
+    font-size: 20pt;
+    text-align: center;
+}
+
+#red{
+    color: crimson;
+}
+
+#black{
+    color: black;
+}
+
+
 #c00,
 #c01,
 #c02,

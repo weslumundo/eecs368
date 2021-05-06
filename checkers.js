@@ -9,7 +9,7 @@ let board = [
     ["R","X","R","X","R","X","R","X"]
 ];
 
-/* test board
+/*test boards
 let board = [
     ["Q","O","X","O","X","O","X","Q"],
     ["O","O","O","X","B","X","B","X"],
@@ -19,6 +19,17 @@ let board = [
     ["O","X","B","X","B","O","O","O"],
     ["X","O","X","O","X","O","Q","O"],
     ["Q","X","O","O","O","X","R","K"]
+];
+
+let board = [
+    ["X","O","X","O","X","O","X","O"],
+    ["O","X","O","X","O","X","O","X"],
+    ["X","O","X","O","X","O","X","O"],
+    ["O","X","O","X","O","X","O","X"],
+    ["X","O","X","O","X","O","X","O"],
+    ["O","X","O","X","O","X","O","O"],
+    ["X","O","X","O","X","O","X","O"],
+    ["O","X","O","O","O","X","O","X"]
 ];
 */
 
@@ -359,7 +370,7 @@ function blackKingTurn(i,j){
     }
 }
 
-//move piece from 1st position to second position, also handels kinging
+//move piece from 1st position to second position, also handels kinging and winning
 function redMove(i1,j1,i2,j2){
     clear();
     board[i1][j1] = "O";
@@ -369,7 +380,7 @@ function redMove(i1,j1,i2,j2){
     }
     draw();
     if(checkBlack()){
-        //WINNER
+        winner(1);
     }
     else{
         blackTurnSetup();
@@ -385,7 +396,7 @@ function blackMove(i1,j1,i2,j2){
     }
     draw();
     if(checkRed()){
-        //WINNER
+        winner(0);
     }
     else{
         redTurnSetup();
@@ -398,7 +409,7 @@ function redKingMove(i1, j1, i2, j2){
     board[i2][j2] = "Q";
     draw();
     if(checkBlack()){
-        //WINNER
+        winner(1);
     }
     else{
         blackTurnSetup();
@@ -411,14 +422,14 @@ function blackKingMove(i1, j1, i2, j2){
     board[i2][j2] = "K";
     draw();
     if(checkRed()){
-        //WINNER
+        winner(0);
     }
     else{
         redTurnSetup();
     }
 }
 
-//jump over a piece and kill it, handels kinging
+//jump over a piece and kill it, handels kinging and winning
 function redKillMove(i1,j1,i2,j2,i3,j3){
     clear();
     board[i1][j1]="O"
@@ -426,7 +437,7 @@ function redKillMove(i1,j1,i2,j2,i3,j3){
     board[i3][j3]="R"
     if(checkBlack()){
         draw();
-        //WINNER
+        winner(1);
     }
     else{
         if(i3==0){
@@ -446,9 +457,9 @@ function blackKillMove(i1,j1,i2,j2,i3,j3){
     board[i1][j1]="O"
     board[i2][j2]="O"
     board[i3][j3]="B"
-    if(checkBlack()){
+    if(checkRed()){
         draw();
-        //WINNER
+        winner(0);
     }
     else{
         if(i3==7){
@@ -470,7 +481,7 @@ function redKingKillMove(i1,j1,i2,j2,i3,j3){
     board[i3][j3]="Q"
     draw();
     if(checkBlack()){
-        //WINNER
+        winner(1);
     }
     else{
         redRefix(i3,j3);
@@ -483,8 +494,8 @@ function blackKingKillMove(i1,j1,i2,j2,i3,j3){
     board[i2][j2]="O"
     board[i3][j3]="K"
     draw();
-    if(checkBlack()){
-        //WINNER
+    if(checkRed()){
+        winner(0);
     }
     else{
         blackKingRefix(i3,j3);
@@ -722,6 +733,18 @@ function checkBlack(){
     return check;
 }
 
+//shows winner elements
+function winner(team){
+    document.getElementById("win").style.visibility = "visible";
+    if(team==1){
+        document.getElementById("red").style.visibility = "visible";
+    }
+    else if(team==0){
+        document.getElementById("black").style.visibility = "visible";
+    }
+}
+
+//wait untill dom is loaded, fill element array, start the game.
 document.addEventListener("DOMContentLoaded", ()=> {
     console.log("DOM loaded");
     for(let i=0;i<=7;i++){//y
